@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>textEffect2</title>
+    <style>
+       @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200&display=swap');
+        :root{
+            --bg-color: hsl(49 37% 94%);
+            --typewriterSpeed: 6s;
+            --length: 26;
+        }
+       *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        html {
+            font-size: 62.5%;
+            font-family:  sans-serif;
+        }
+        body{
+            display: grid;
+            place-content: center;
+            min-height: 100vh;
+            text-align: center;
+
+            background: var(--bg-color);
+        }       
+
+        h1{
+            position: relative;
+            
+            font-family: 'Source Code Pro', monospace;
+            font-size: 2rem;
+            width: max-content;
+        }
+        h1::before,
+        h1::after{
+            position: absolute;
+            content: '';
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+        }
+        h1::before{
+            background: var(--bg-color);
+            animation: 
+                typewriter var(--typewriterSpeed) steps(26) forwards;
+        }
+        h1::after{
+            width: 0.125em;
+            background: black;
+            animation: 
+                typewriter var(--typewriterSpeed) steps(var(--length)) forwards,
+                blink 400ms steps(var(--length)) infinite;
+        }
+        @keyframes typewriter{
+            to{
+                left: 100%;
+            }
+        }
+        @keyframes blink{
+            to{
+                background: transparent;
+            }
+        }
+        @keyframes fadeInUp{
+            to{
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        .subtitle{
+            font-weight: 400;
+            font-size: 1rem;
+            margin-top: 3em;
+
+            opacity: 0;
+            transform: translateY(3rem);
+            animation: fadeInUp 2s ease calc(var(--typewriterSpeed) + 1s) forwards;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Hello, My name is TuanAnh.</h1>
+    <p class="subtitle">I love you, YenNhi</p>
+</body>
+</html>

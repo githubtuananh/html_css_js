@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaves Animation Effects</title>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200&display=swap');
+        :root{
+            --typewriterSpeed: 6s;
+            --length: 26;
+        }
+       *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        html {
+            font-size: 62.5%;
+            font-family:  sans-serif;
+        }
+        section{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            position: relative;
+            width: 100%;
+            height: 100vh;
+
+            overflow: hidden;
+            
+            background: radial-gradient(#333, #000);
+        }
+        section h2{
+            color: #fff;
+            font-size: 9rem;
+            text-transform: uppercase;
+            z-index: 1;
+        }
+        section .set{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+            pointer-events: none;
+        }
+        section .set div{
+            position: absolute;
+            display: block;
+        }
+
+        section .set div:nth-child(1){
+            left: 20%;
+            animation: animate 15s linear infinite;
+            animation-delay: -7s;
+        }
+        section .set div:nth-child(2){
+            left: 50%;
+            animation: animate 20s linear infinite;
+            animation-delay: -5s;
+        }
+        section .set div:nth-child(3){
+            left: 70%;
+            animation: animate 20s linear infinite;
+            animation-delay: 0s;
+        }
+        section .set div:nth-child(4){
+            left: 0%;
+            animation: animate 15s linear infinite;
+            animation-delay: -5s;
+        }
+        section .set div:nth-child(5){
+            left: 85%;
+            animation: animate 18s linear infinite;
+            animation-delay: -10s;
+        }
+        section .set div:nth-child(6){
+            left: 0%;
+            animation: animate 12s linear infinite;
+            animation-delay: 0s;
+        }
+        section .set div:nth-child(7){
+            left: 15%;
+            animation: animate 14s linear infinite;
+            animation-delay: 0s;
+        }
+        section .set div:nth-child(8){
+            left: 60%;
+            animation: animate 18s linear infinite;
+            animation-delay: -10s;
+        }
+        @keyframes animate{
+            0%{
+                opacity: 0;
+                top: -20%;
+                transform: translateX(2rem) rotate(0deg);
+            }
+            10%{
+                opacity: 1;
+            }
+            20%{
+                transform: translateX(-2rem) rotate(45deg);
+            }
+            40%{
+                transform: translateX(-2rem) rotate(90deg);
+            }
+            60%{
+                transform: translateX(2rem) rotate(180deg);
+            }
+            80%{
+                transform: translateX(-2rem) rotate(180deg);
+            }
+            100%{
+                top: 110%;
+                transform: translateX(-2rem) rotate(225deg);
+            }
+        }
+
+        .set1{
+            z-index: 2;
+        }
+        .set2{
+            z-index: 3;
+            transform: scale(2) rotateY(180deg);
+            filter: blur(0.2rem);
+        }
+        .set3{
+            z-index: 0;
+            transform: scale(0.8) rotateX(180deg);
+            filter: blur(0.4rem);
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <h2>Falling Leaves</h2>
+        <div class="set set1">
+            <div><img src="./images/fallingLeaves/leaves1.png" alt=""></div>
+            <div><img src="./images/fallingLeaves/leaves2.png" alt=""></div>
+            <div><img src="./images/fallingLeaves/leaves3.png" alt=""></div>
+            <div><img src="./images/fallingLeaves/leaves4.png" alt=""></div>
+            <div><img src="./images/fallingLeaves/leaves1.png" alt=""></div>
+            <div><img src="./images/fallingLeaves/leaves2.png" alt=""></div>
+            <div><img src="./images/fallingLeaves/leaves3.png" alt=""></div>
+            <div><img src="./images/fallingLeaves/leaves4.png" alt=""></div>
+        </div>
+        <div class="set set2">
+            <div><img src="./images/fallingLeaves/leaves1.png" alt=""></div>
+            <div><img src="./images/fallingLeaves/leaves2.png" alt=""></div>
+            <div><img src="./images/fallingLeaves/leaves3.png" alt=""></div>
+            <div><img src="./images/fallingLeaves/leaves4.png" alt=""></div>
+            <div><img src="./images/fallingLeaves/leaves1.png" alt=""></div>
+            <div><img src="./images/fallingLeaves/leaves2.png" alt=""></div>
+            <div><img src="./images/fallingLeaves/leaves3.png" alt=""></div>
+            <div><img src="./images/fallingLeaves/leaves4.png" alt=""></div>
+        </div>
+        <div class="set set3">
+            <div><img src="./images/fallingLeaves/leaves1.png" alt=""></div>
+            <div><img src="./images/fallingLeaves/leaves2.png" alt=""></div>
+            <div><img src="./images/fallingLeaves/leaves3.png" alt=""></div>
+            <div><img src="./images/fallingLeaves/leaves4.png" alt=""></div>
+            <div><img src="./images/fallingLeaves/leaves1.png" alt=""></div>
+            <div><img src="./images/fallingLeaves/leaves2.png" alt=""></div>
+            <div><img src="./images/fallingLeaves/leaves3.png" alt=""></div>
+            <div><img src="./images/fallingLeaves/leaves4.png" alt=""></div>
+        </div>
+    </section>
+</body>
+</html>

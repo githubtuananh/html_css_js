@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Cart Animation</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html{
+            font-family: sans-serif;
+            font-size: 62.5%;
+            background: #ff7979;
+        }
+        .cart{
+            position: absolute;
+
+            display: flex;
+            align-items: center;
+            top:0;
+            right:0;
+            margin: 3rem;
+            padding: 1.2rem 2.3rem;
+            
+            
+            background: #fff;
+            font-size: 1.3rem;
+            color: #ff7979;
+
+            border-radius: 0.4rem;
+            cursor: pointer;
+        }
+        .fa-shopping-cart{
+            margin-right: 0.5rem;
+            font-size: 2rem;
+        }
+        .cart span{
+            font-weight: 600;
+        }
+        .cart .item-count{
+            margin-left: 0.8rem;
+            height: 2rem;
+            width: 2rem;
+            
+            background: #ffcccc;
+            border-radius: 50%;
+
+            text-align: center;
+            line-height: 2rem;
+        }
+
+
+        .item{
+            position: relative;
+            overflow: hidden;
+
+            width: 30rem;
+            margin-bottom: 2rem;
+        }
+        .item .img-product{
+            width: 100%;
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+        .product-list{
+            display: flex;
+            justify-content: space-evenly;
+            align-items:center;
+            flex-wrap: wrap;
+            height: 100vh;
+            margin-top: 10rem;
+        }
+        .item .info-product{
+            position: absolute;
+            width: 100%;
+            height: 45%;
+            padding: 1em 1.5em;
+
+            background: #fff;
+            box-shadow: 0 0 0.8em rgba(0,0,0,0.5);
+
+            transition: 0.5s;
+        }
+        .info-product .name-product{
+            font-size: 1.7rem;
+            font-weight: 600;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            letter-spacing: 0.01em;
+        }
+        .info-product .price{
+            font-size: 2rem;
+            font-weight: 600;
+            color: #ff7979;
+        }
+        .info-product .des-product{
+            font-size: 1.3rem;
+            margin-top: 0.4em;
+            margin-bottom: 1.6em;
+        }
+
+        .btn-product{
+            display: flex;
+            justify-content: space-between;
+        }
+        .btn-product .btn{
+            width: 47%;
+            text-transform: uppercase;
+            font-size: 1.3rem;
+            font-weight: 600;
+            padding: 0.7em 0;
+
+            outline: none;
+        }
+        .btn-product .buy-product{
+            border: 0.2em solid #ff7979;
+            border-radius: 0.3rem;
+            color: #ff7979;
+            background: #fff;
+
+            cursor: pointer;
+        }
+        .btn-product .add-product{
+            border: none;
+            border-radius: 0.3em;
+            color: #fff;
+            background: #ff7979;
+
+            cursor: pointer;
+        }
+
+
+        .name-product::selection,.des-product::selection{
+            background: #ff7979;
+            color: #fff;
+        }
+        .item:hover .info-product{
+            transform: translateY(-100%);
+        }
+        .item:hover .img-product{
+            transform: scale(1.15);
+        }
+
+
+        @media screen and (max-width: 300px){
+            .main{
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="cart">
+            <i class="fas fa-shopping-cart"></i>
+            <span>Cart</span>
+            <div class="item-count">0</div>
+        </div>
+        <section class="product-list">
+            <div class="item">
+                <img src="./images/product_bgWhite/airpods.png" alt="" class="img-product">
+                <div class="info-product">
+                    <p class="name-product">Apple Airpods <span class="price">$50</span></p>
+                    <p class="des-product">Premium black airpods</p>
+                    <div class="btn-product">
+                        <button class="buy-product btn">buy now</button>
+                        <button class="add-product btn">add to cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="./images/product_bgWhite/headphone.png" alt="" class="img-product">
+                <div class="info-product">
+                    <p class="name-product">Headphone <span class="price">$30</span></p>
+                    <p class="des-product">Premium headphone</p>
+                    <div class="btn-product">
+                        <button class="buy-product btn">buy now</button>
+                        <button class="add-product btn">add to cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="./images/product_bgWhite/watch.png" alt="" class="img-product">
+                <div class="info-product">
+                    <p class="name-product">Apple Watch <span class="price">$70</span></p>
+                    <p class="des-product">Premium digital watch</p>
+                    <div class="btn-product">
+                        <button class="buy-product btn">buy now</button>
+                        <button class="add-product btn">add to cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+    <script>
+    $(document).ready(function(){
+        let count = 0;
+        //if add to cart btn clicked
+        $('.add-product').on('click', function (){
+        let cart = $('.cart');
+        // find the img of that card which button is clicked by user
+        let imgtodrag = $(this).parents('.item').find(".img-product");
+        console.log(imgtodrag) 
+        if(imgtodrag){
+            //.clone() tao ra mot elemnt giong vay(copy)
+            var imgclone = imgtodrag.clone().offset({
+                top: imgtodrag.offset().top,
+                left: imgtodrag.offset().left
+            }).css({
+                'opacity': '0.8',
+                'position': 'absolute',
+                'height': '15rem',
+                'width': '15rem',
+                'z-index': '100'
+            }).appendTo($('body')).animate({
+                'top': cart.offset().top ,
+                'left': cart.offset().left ,
+                'width': '7.5rem',
+                'height': '7.5rem'
+            },1000);
+
+            setTimeout(function(){
+            count++;
+            $(".cart .item-count").text(count);
+            }, 1500);
+
+            
+            imgclone.animate({
+            'width': 0,
+            'height': 0
+            }, function(){
+                $(this).detach()
+                //giong remove nhung van giu lai de sau nay tuong tac voi jquery
+            });
+        }
+        
+        // if (imgtodrag) {
+        //     // duplicate the img
+        //     var imgclone = imgtodrag.clone().offset({
+        //     top: imgtodrag.offset().top,
+        //     left: imgtodrag.offset().left
+        //     }).css({
+        //     'opacity': '0.8',
+        //     'position': 'absolute',
+        //     'height': '150px',
+        //     'width': '150px',
+        //     'z-index': '100'
+        //     }).appendTo($('body')).animate({
+        //     'top': cart.offset().top + 20,
+        //     'left': cart.offset().left + 30,
+        //     'width': 75,
+        //     'height': 75
+        //     }, 1000, 'easeInOutExpo');
+
+        //     setTimeout(function(){
+        //     count++;
+        //     $(".cart-nav .item-count").text(count);
+        //     }, 1500);
+
+        //     imgclone.animate({
+        //     'width': 0,
+        //     'height': 0
+        //     }, function(){
+        //     $(this).detach()
+        //     });
+        // }
+        });
+    })
+    </script>
+</html>
